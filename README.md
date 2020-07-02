@@ -1,5 +1,5 @@
 
-# OpenNaPTAN Check Systems
+# OpenNaPTAN Check System
 
 A collection of methods for checking the validity of entries into the NaPTAN dataset and displaying NaPTAN geospatial data in an interactive web browser.
 
@@ -220,7 +220,7 @@ Pipenv used for package and dependency management.
 
 5. Enter the named administrative area (only named areas as above are permitted, any other terms will cause the application to fail currently) you want to perform the checks on and require an interactive map.
 
-6. Check your downloads folder for the map and error folder.
+6. Check your downloads folder for the map and error folders.
 
 7. Open the interactive map in a web browser. The control in the top right  allows the creation of temporary geodesic measurement lines between two given points for NaPTAN stops, or from stops to specific points.
 
