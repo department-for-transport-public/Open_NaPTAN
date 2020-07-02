@@ -1,0 +1,48 @@
+{
+    "fields": [
+        {
+            "name": "AtcoCode",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "IataCode",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "Name",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "NameLang",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "CreationDateTime",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "ModificationDateTime",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "RevisionNumber",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "Modification",
+            "type": "string",
+            "format": "default"
+        }
+    ],
+    "missingValues": [
+        ""
+    ],
+    "missingvalues": "N/A"
+}
