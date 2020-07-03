@@ -233,6 +233,7 @@ See below for an example image of a NaPTAN area map:
 Cross platform for windows, macosx and linux, should all be supported. If you encounter any issues, please raise an issue request via Github.
 
 ## Versioning
+0.0.1 - 
 
 ## Authors
 
@@ -247,7 +248,7 @@ Giuseppe Sollazzo
 [MIT License](https://github.com/departmentfortransport/NaPTANTools/blob/master/LICENCE.md)
 
 ## Acknowledgements
-
+© OpenStreetMap contributors
 Open Street Map Data has been used in the development of this product.
 
 Giuseppe Sollazzo
