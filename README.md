@@ -248,7 +248,10 @@ Giuseppe Sollazzo
 [MIT License](https://github.com/departmentfortransport/NaPTANTools/blob/master/LICENCE.md)
 
 ## Acknowledgements
-© OpenStreetMap contributors
+
+Base map and data from OpenStreetMap and OpenStreetMap Foundation
+Find out more here: https://www.openstreetmap.org/copyright
+
 Open Street Map Data has been used in the development of this product.
 
 Giuseppe Sollazzo
