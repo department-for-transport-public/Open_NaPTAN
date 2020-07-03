@@ -252,6 +252,9 @@ Giuseppe Sollazzo
 Open Street Map Data has been used in the development of this product.
 
 Giuseppe Sollazzo
+
 Kimberley Brett
+
 Tom Soares Mullen
+
 Kian Chapman-Raafat
