@@ -50,22 +50,24 @@ graduanity.
 - Stop names with repeating words
 - check that atcocodes are the correct format.
 - check naptan localities are consistent with nptg dataset.
+- checks if a column has any nan or null values.
 
 ### Visualisation
 
 - displaying stop areas and localities.
 - Add relevant issues and relevant errors
 - Checking localities polygons overlap
+- Display critical warning on interactive maps
+- change between showing all stops and critical stop warnings (only high warnings.)
 
 ### Report
 
 - consistent report function for when area passes given test.
 
-## [0.0.3] - 2020-10-xx
+## [0.0.3] - 2020-11-04
 
 ### Added
 
-- Display critical warning on interactive maps
 - change between showing all stops and critical stop warnings (only high warnings.)
 - added setup.py file
 - travis yaml (12/08/2020)
