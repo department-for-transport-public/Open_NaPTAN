@@ -10,10 +10,10 @@ unzipped Naptan dataset is nearly 300mb in size.
 
 This data is extracted in CSV format for ease of processing using Pandas, geopandas and numpy. As well providing the data in a spreadsheet format for inspection in applications such as Excel.
 
-The checks performed on the NaPTAN data are split into two broad categories;
+The checks performed on the NaPTAN data are split into two board categories;
 
 1. Internal Data Consistency Checks (con-checks), identifying NaPTAN records
-that are not internally consistent with themselves or related NaPTAN nodes.
+that are not internal consistent with themselves or related NaPTAN nodes.
 
 2. Geospatial Data Checks (geo-checks), identifying issues with the geospatial coordinates, position, and relationships between NaPTAN nodes in a network and other related nodes in the same network.
 
@@ -176,7 +176,7 @@ Administrative area maps vary in size from < 1mb to 30mb (For the Greater London
 > _*Note:* Some areas contain a significantly higher number of NaPTAN Stops and therefore
 will take significantly longer to load the html interactive map into your browser application._
 
-### Prerequisites
+### Prerequisties
 
 * System level access to install a python application.
 * Ability to view HTML files.
@@ -248,11 +248,8 @@ Giuseppe Sollazzo
 [MIT License](https://github.com/departmentfortransport/NaPTANTools/blob/master/LICENCE.md)
 
 ## Acknowledgements
-
-Base map and data from OpenStreetMap and OpenStreetMap Foundation
-Find out more here: https://www.openstreetmap.org/copyright
-
-OpenStreetMap Data has been used in the development of this product.
+© OpenStreetMap contributors
+Open Street Map Data has been used in the development of this product.
 
 Giuseppe Sollazzo
 

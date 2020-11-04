@@ -3,10 +3,7 @@ name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
-[dev-packages]
-
 [packages]
-streamlit = "*"
 descartes = "*"
 shapely = "*"
 numpy = "*"
@@ -43,8 +40,6 @@ lxml = "*"
 html5lib = "*"
 bs4 = "*"
 geopy = "*"
-networkx = "*"
-osmnx = "*"
 convertbng = "*"
 missingno = "*"
 tqdm = "*"
@@ -66,7 +61,6 @@ pyproj = "*"
 branca = "*"
 click = "*"
 pandas = "*"
-pytest = "*"
 hypothesis = "*"
 nose2 = "*"
 robotframework = "*"
@@ -75,6 +69,40 @@ mamba = "*"
 tox = "*"
 doublex = "*"
 mock = "*"
+tox-pipenv = "*"
+pip-check-reqs = "==2.0"
+geojson = "*"
+pip = "*"
+codecov = "*"
+pytest-mock = "*"
+attrs = "19.1.0"
+pytest = "5.2.0"
+pytest-cov = "*"
+engarde = "*"
+pattern = "*"
+mypy = "*"
+jellyfish = "*"
+gensim = "*"
+faker = "*"
+parserator = "*"
+fuzzywuzzy = "*"
+fuzzyjoin = "*"
+scrubadub = "*"
+pint = "*"
+arrow = "*"
+dora = "*"
+badfish = "*"
+pydantic = "*"
+logbook = "*"
+keplergl = "*"
+pylance = "*"
 
 [requires]
 python_version = "3.7"
+
+[dev-packages]
+naptantools = {editable = true,path = "."}
+black = "*"
+
+[pipenv]
+allow_prereleases = true
