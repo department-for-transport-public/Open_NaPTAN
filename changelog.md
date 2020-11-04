@@ -68,6 +68,7 @@ graduanity.
 
 ### Added
 
+- Now downloads the publicly available nptg dataset for data cleansing checks.
 - change between showing all stops and critical stop warnings (only high warnings.)
 - added setup.py file
 - travis yaml (12/08/2020)

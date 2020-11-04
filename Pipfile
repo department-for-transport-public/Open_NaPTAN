@@ -95,14 +95,12 @@ badfish = "*"
 pydantic = "*"
 logbook = "*"
 keplergl = "*"
-pylance = "*"
-cryptography = "==3.2"
 
 [requires]
 python_version = "3.7"
 
 [dev-packages]
-naptantools = {editable = true,path = "."}
+naptantools = {editable = true, path = "."}
 black = "*"
 
 [pipenv]
