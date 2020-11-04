@@ -1,4 +1,4 @@
-from src.checks import NaptanCheck
+from checks import NaptanCheck
 from report import reporting as rep
 
 # %%

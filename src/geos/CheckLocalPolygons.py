@@ -3,7 +3,7 @@ import etl.etl_pipe
 from etl.etl_pipe import create_naptan_subframe as cns
 import sys
 from shapely.geometry import Point, Polygon, LineString, LinearRing
-from src.checks import NaptanCheck
+from checks import NaptanCheck
 from etl.geo_pipe import make_naptan_polygon
 import pyproj
 from functools import partial
@@ -18,7 +18,7 @@ class PolygonStructure(NaptanCheck):
     """[summary] a collection of methods for checking that locality level
     polygons are the correct size.
     Required for checking that the hail and ride section length is not over a 1km.
-    Logic test for checking the length of localities are logic and no boundary 
+    Logic test for checking the length of localities are logic and no boundary
     point is more than 10x the distance from shortest distance boundary point.
     Args:
         NaptanCheck ([type]): [description]
@@ -32,9 +32,9 @@ class PolygonStructure(NaptanCheck):
     """
 
     # for reporting
-    check_name = 'Check Polygon Structure'
-    check_warning_level = 'medium'
-    check_geographic_level = 'Locality'
+    check_name = "Check Polygon Structure"
+    check_warning_level = "medium"
+    check_geographic_level = "Locality"
 
     @classmethod
     def polygon_longest_side(cls, locality_polygon):
@@ -44,7 +44,7 @@ class PolygonStructure(NaptanCheck):
         correct.
 
         Arguments:
-            polygon {[shapely.geometry.polygon.Polygon]} -- [the polygon of the 
+            polygon {[shapely.geometry.polygon.Polygon]} -- [the polygon of the
             given area, ]
 
         Raises:
@@ -54,7 +54,7 @@ class PolygonStructure(NaptanCheck):
             [type] -- [description]
         """
 
-        check_name = 'Check Polygon length is not too long.'
+        check_name = "Check Polygon length is not too long."
         polygon = locality_polygon
         try:
             # get minimum bounding box around polygon
@@ -62,8 +62,10 @@ class PolygonStructure(NaptanCheck):
             # get coordinates of polygon vertices
             x, y = box.exterior.coords.xy
             # get length of bounding box longest edge
-            edge = (Point(x[0], y[0]).distance(Point(x[1], y[1])), Point(
-                x[1], y[1]).distance(Point(x[2], y[2])))
+            edge = (
+                Point(x[0], y[0]).distance(Point(x[1], y[1])),
+                Point(x[1], y[1]).distance(Point(x[2], y[2])),
+            )
             # get length of polygon as the longest edge of the bounding box
             longest_length = max(edge)
             # returns the longest length
@@ -78,7 +80,7 @@ class PolygonStructure(NaptanCheck):
     @classmethod
     def polygon_shortest_side(cls, locality_polygon):
         """[summary] Check that the shortest side is not under 4 meters, as that
-        would indicated that naptan nodes are too close together. 
+        would indicated that naptan nodes are too close together.
 
         Args:
             polygon ([type]): [description]
@@ -90,7 +92,7 @@ class PolygonStructure(NaptanCheck):
             [type]: [description]
         """
 
-        check_name = 'Check polygon shortest side is not too short.'
+        check_name = "Check polygon shortest side is not too short."
         polygon = locality_polygon
 
         try:
@@ -99,8 +101,10 @@ class PolygonStructure(NaptanCheck):
             # get coordinates of polygon vertices
             x, y = box.exterior.coords.xy
             # get length of bounding box longest edge
-            edge = (Point(x[0], y[0]).distance(Point(x[1], y[1])), Point(
-                x[1], y[1]).distance(Point(x[2], y[2])))
+            edge = (
+                Point(x[0], y[0]).distance(Point(x[1], y[1])),
+                Point(x[1], y[1]).distance(Point(x[2], y[2])),
+            )
             # get length of polygon as the longest edge of the bounding box
             shortest_length = min(edge)
             # returns the shortest length
@@ -134,7 +138,7 @@ class PolygonStructure(NaptanCheck):
 
         Args:
             gdf ([naptan master geodataframe]): [the naptan master.]
-            df_area ([naptan geodataframe]): [the sub area we are checking, 
+            df_area ([naptan geodataframe]): [the sub area we are checking,
             not we pass the entire frame, (a locality)]
             polygon ([[shapely.geometry.polygon.Polygon]): [description]
 
@@ -153,12 +157,12 @@ class PolygonStructure(NaptanCheck):
         poly_short = cls.polygon_shortest_side(area_polygon)
         # check area length.
         if poly_long >= 800:
-            print('Is not a locality and the area is excluded from this check')
+            print("Is not a locality and the area is excluded from this check")
             pass
         elif poly_long <= 1000:
-            print('Polygon area is regular')
+            print("Polygon area is regular")
         else:
-            print('Polygon area is irregular')
+            print("Polygon area is irregular")
             rep.report_failing_nodes(gdf, check_name, naptan_locality)
 
     @classmethod
@@ -177,12 +181,13 @@ class PolygonStructure(NaptanCheck):
             partial(
                 pyproj.transform,
                 # the result as a spheroid
-                pyproj.Proj(init='EPSG:4326'),
+                pyproj.Proj(init="EPSG:4326"),
                 pyproj.Proj(
-                    proj='aea',
-                    lat_1=local_poly.bounds[1],
-                    lat_2=local_poly.bounds[3])),
-            local_poly)
+                    proj="aea", lat_1=local_poly.bounds[1], lat_2=local_poly.bounds[3]
+                ),
+            ),
+            local_poly,
+        )
         print(f"Locality area is {geom_area.area}m^2")
         return geom_area.area
         # Output in m^2: 1083461.9234313113
@@ -200,12 +205,12 @@ class PolygonStructure(NaptanCheck):
         """
         # TODO -> check the area size is below a set amount.
         # TODO determine the very generous limit of a locality size.
-        locality_limit = ''
+        locality_limit = ""
         if locality_projected_size <= locality_limit:
-            print(f'{locality_name} sq area limit is acceptable size.')
+            print(f"{locality_name} sq area limit is acceptable size.")
         else:
             # TODO report error of limit.
-            result = ''
+            result = ""
             return result
 
     @classmethod
@@ -221,7 +226,7 @@ class PolygonStructure(NaptanCheck):
         # get the 4 cardinal boundaries.
         east, south, west, north = polygon.bounds
         # get the absolute line length of oppositionals
-        line_length = max(abs(east-west), abs(north-south)) * 2
+        line_length = max(abs(east - west), abs(north - south)) * 2
         # np.sin of the gradiant bearing.
         new_x = x + (np.sin(np.deg2rad(bearing)) * line_length)
         # cos sin of the gradiant bearing line.
@@ -237,7 +242,6 @@ class PolygonStructure(NaptanCheck):
 
 
 # %%
-lambeth = cns(gdf, 'LocalityName', 'lambeth')
-locality_area_size = PolygonStructure.locality_naptan_projected_square_area(
-    lambeth)
+lambeth = cns(gdf, "LocalityName", "lambeth")
+locality_area_size = PolygonStructure.locality_naptan_projected_square_area(lambeth)
 PolygonStructure.check_naptan_locality_area_size(locality_area_size)

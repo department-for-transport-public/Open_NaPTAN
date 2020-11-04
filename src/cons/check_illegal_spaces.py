@@ -1,6 +1,6 @@
 import sys
 from report import reporting as rep
-from src.checks import NaptanCheck
+from checks import NaptanCheck
 
 # %%
 

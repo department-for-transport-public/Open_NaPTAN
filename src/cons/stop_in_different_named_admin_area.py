@@ -1,6 +1,6 @@
 import pandas as pd
 from report import reporting as rep
-from src.checks import NaptanCheck
+from checks import NaptanCheck
 import sys
 
 # %%
@@ -12,15 +12,16 @@ class StopsDifferentNamedAdminArea(NaptanCheck):
     Args:
         NaptanCheck ([type]): [description]
     """
+
     # for reporting
     check_name = "stops_in_different_admin_area"
-    check_warning_level = 'high'
-    check_geographic_level = 'stop'
+    check_warning_level = "high"
+    check_geographic_level = "stop"
 
     @classmethod
     def stops_in_different_admin_area(cls, gdf):
         """[summary] Checks if a stop is in a different administrative area, based
-        on the AtcoAreaCode Column. We take the first 3 characters prefix of the 
+        on the AtcoAreaCode Column. We take the first 3 characters prefix of the
         atcocode and check them against the atcoareacode for the admin area.
         They should match.
         Args:
@@ -34,16 +35,17 @@ class StopsDifferentNamedAdminArea(NaptanCheck):
         gdf1 = gdf
         try:
             #  get prefix from atcocode column
-            gdf1['atcocodeprefix'] = gdf1['ATCOCode'].str[:3]
+            gdf1["atcocodeprefix"] = gdf1["ATCOCode"].str[:3]
             #  get the AtcoAreaCode column value, making sure that we account for
             # 2-digit atcocode prefixes and int types, using to_numeric
-            gdf1['AtcoAreaCode'] = gdf1['AtcoAreaCode'].astype(str)
-            gdf1['atcocodeprefix'] = pd.to_numeric(gdf1['atcocodeprefix'])
-            gdf1['AtcoAreaCode'] = pd.to_numeric(gdf1['AtcoAreaCode'])
+            gdf1["AtcoAreaCode"] = gdf1["AtcoAreaCode"].astype(str)
+            gdf1["atcocodeprefix"] = pd.to_numeric(gdf1["atcocodeprefix"])
+            gdf1["AtcoAreaCode"] = pd.to_numeric(gdf1["AtcoAreaCode"])
             #  compare the two together, they should match
-            gdf1['not matching'] = gdf1['atcocodeprefix'].eq(pd.to_numeric(
-                gdf1['AtcoAreaCode'], errors='coerce'))
-            failed_nodes = gdf1[~gdf1['not matching']]
+            gdf1["not matching"] = gdf1["atcocodeprefix"].eq(
+                pd.to_numeric(gdf1["AtcoAreaCode"], errors="coerce")
+            )
+            failed_nodes = gdf1[~gdf1["not matching"]]
             rep.report_failing_nodes(gdf, check_name, failed_nodes)
             return failed_nodes
             # TODO if they don't match, report the nodes that don't match

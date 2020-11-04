@@ -1,7 +1,7 @@
 import sys
 from report import reporting as rep
 
-from src.checks import NaptanCheck
+from checks import NaptanCheck
 
 # %%
 
@@ -36,26 +36,24 @@ class LocalitiesIDStops(NaptanCheck):
             df_warnings[type] -- [description]
         """
         # for reporting
-        check_name = 'Check localities for identical stops.'
-        check_warning_level = 'high'
-        check_geographic_level = 'localities'
+        check_name = "Check localities for identical stops."
+        check_warning_level = "high"
+        check_geographic_level = "localities"
         # clone the stop name
         gdf1 = gdf_locality
         # get the area name.
         try:
             # check nptg locality length is not over 1, otherwise this is
             # not a single locality
-            if len(gdf1['NptgLocalityCode'].unique()) == 1:
+            if len(gdf1["NptgLocalityCode"].unique()) == 1:
                 # get duplicates.
-                mask = gdf1['StopPoint'].duplicated()
+                mask = gdf1["StopPoint"].duplicated()
                 # mask
                 failed_nodes = gdf1[mask]
-                rep.report_failing_nodes(gdf_locality,
-                                         check_name,
-                                         failed_nodes)
+                rep.report_failing_nodes(gdf_locality, check_name, failed_nodes)
                 return failed_nodes
 
         except Exception as e:
             # pass if this is not a localities, we just catching.
-            print(f'Not a locality, test can not be performed. {e}')
+            print(f"Not a locality, test can not be performed. {e}")
             pass

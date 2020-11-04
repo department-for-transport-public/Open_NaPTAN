@@ -1,5 +1,5 @@
 from report import reporting as rep
-from src.checks import NaptanCheck
+from checks import NaptanCheck
 from geos.CheckLocalPolygons import PolygonStructure
 
 
@@ -18,9 +18,10 @@ class UnusallyElongatedShape(NaptanCheck):
     Returns:
         [type]: [description]
     """
-    check_name = 'Locality_Size is unusually elongated in length.'
-    check_warning_level = 'high'
-    check_geographic_level = 'locality'
+
+    check_name = "Locality_Size is unusually elongated in length."
+    check_warning_level = "high"
+    check_geographic_level = "locality"
 
     @classmethod
     @NotImplementedError
@@ -47,11 +48,10 @@ class UnusallyElongatedShape(NaptanCheck):
         """
         check_name = "locality_with_unusually_elongated_shape"
 
-        PolygonStructure.check_area_length_is_regular(
-            gdf_locality, 'Name of locality')
+        PolygonStructure.check_area_length_is_regular(gdf_locality, "Name of locality")
         # list of stops not in correct admin areas by geo position.
         # TODO - if
-        failed_nodes = ''
+        failed_nodes = ""
 
         rep.report_failing_nodes(gdf_locality, check_name, failed_nodes)
         return failed_nodes

@@ -1,5 +1,5 @@
 from report import reporting as rep
-from src.checks import NaptanCheck
+from checks import NaptanCheck
 
 # %%
 
@@ -17,9 +17,10 @@ class BusStopTypeWrong(NaptanCheck):
     Returns:
         [type]: [description]
     """
-    check_name = 'Bus stop wrong type.'
-    check_geographic_level = 'stop'
-    check_warning_level = 'low'
+
+    check_name = "Bus stop wrong type."
+    check_geographic_level = "stop"
+    check_warning_level = "low"
 
     @classmethod
     def get_distance(cls, parameter_list):
@@ -43,7 +44,7 @@ class BusStopTypeWrong(NaptanCheck):
         """
         check_name = "stop_with_wrong_types"
         # list of stops not in correct admin areas by geo position.
-        failed_nodes = ''
+        failed_nodes = ""
         rep.report_failing_nodes(gdf, check_name, failed_nodes)
         return failed_nodes
         raise NotImplementedError

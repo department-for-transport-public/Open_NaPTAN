@@ -1,6 +1,6 @@
 import sys
 from report import reporting as rep
-from src.checks import NaptanCheck
+from checks import NaptanCheck
 
 # %%
 
@@ -15,10 +15,11 @@ class AtcocodeCheck(NaptanCheck):
     Returns:
         [type]: [description]
     """
+
     # for reporting
-    check_name = 'Check Illegal Characters'
-    check_warning_level = 'low'
-    check_geographic_level = 'stop'
+    check_name = "Check Illegal Characters"
+    check_warning_level = "low"
+    check_geographic_level = "stop"
 
     @classmethod
     def check_atcocode_length(cls, gdf):
@@ -33,15 +34,14 @@ class AtcocodeCheck(NaptanCheck):
         """
         #  variance? Stop type? Authority?
         check_name = "check_atcocode_length_is_12"
-        gdf['AtcoCode_Character_Len'] = gdf['ATCOCode'].apply(len)
-        fail_range = gdf['AtcoCode_Character_Len'].unique()
+        gdf["AtcoCode_Character_Len"] = gdf["ATCOCode"].apply(len)
+        fail_range = gdf["AtcoCode_Character_Len"].unique()
 
         try:
             # create a mask that include no inactive nodes and atcocodes under
             # 12
             if len(fail_range) != 1:
-                mask = ((gdf['Status'] != 'del') &
-                        (gdf['AtcoCode_Character_Len'] != 12))
+                mask = (gdf["Status"] != "del") & (gdf["AtcoCode_Character_Len"] != 12)
                 # get the failing nodes.
                 fn = gdf[mask]
                 # makes report
@@ -53,18 +53,20 @@ class AtcocodeCheck(NaptanCheck):
                 # the below returns a short dataframe counting the number of
                 # atcocodes.
                 # that are less than 12 alphanumeric characters in length.
-                result_agg = fn[['AtcoCode_Character_Len',
-                                 'ATCOCode']].groupby(['AtcoCode_Character_Len']).count()
+                result_agg = (
+                    fn[["AtcoCode_Character_Len", "ATCOCode"]]
+                    .groupby(["AtcoCode_Character_Len"])
+                    .count()
+                )
 
                 return result_agg
 
         except ValueError as ve:
-            sys.exit(f'This error occured {ve}')
+            sys.exit(f"This error occured {ve}")
         except Exception as e:
-            sys.exit(f'{e} was encounter check has been cancelled.')
+            sys.exit(f"{e} was encounter check has been cancelled.")
         else:
-            message = (
-                f'{gdf.AreaName.iloc[0]} all Atcocode unique identifiers are the correct length.')
+            message = f"{gdf.AreaName.iloc[0]} all Atcocode unique identifiers are the correct length."
             rep.write_basic_log_file(message)
 
     @classmethod
@@ -78,4 +80,4 @@ class AtcocodeCheck(NaptanCheck):
             gdf ([type]): [description]
         """
 
-        # TODO - check that atcocodes are the correct format.
+        #  TODO - check that atcocodes are the correct format.

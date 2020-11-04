@@ -1,4 +1,4 @@
-from src.checks import NaptanCheck
+from checks import NaptanCheck
 
 # %%
 
@@ -11,23 +11,23 @@ class StopProximity(NaptanCheck):
     Args:
         NaptanCheck ([type]): [description]
     """
-    check_name = 'Stop proximity'
-    check_geographic_level = ['stops', 'locality']
-    check_warning_level = 'high'
+
+    check_name = "Stop proximity"
+    check_geographic_level = ["stops", "locality"]
+    check_warning_level = "high"
 
     @classmethod
     def stop_proximity_street_side(cls, gdf):
-        """ Descriptions: Stop is too close to another stop, any stop within 4
-         meters of another stop will flag as a warning. BCS type the threshold
-          is 2 meters.
+        """Descriptions: Stop is too close to another stop, any stop within 4
+        meters of another stop will flag as a warning. BCS type the threshold
+         is 2 meters.
 
-            Args:
+           Args:
 
-            Returns:
+           Returns:
         """
         # filter by the require stop type,
-        busstops = NaptanCheck.filter_bus_stops(
-            gdf, bus_stop_types=['BCT', 'BCQ'])
+        busstops = NaptanCheck.filter_bus_stops(gdf, bus_stop_types=["BCT", "BCQ"])
         # check the distance
         return busstops
         #
@@ -41,5 +41,6 @@ class StopProximity(NaptanCheck):
         """
         # filter by the require stop type,
         busstops = NaptanCheck.filter_bus_stops(
-            gdf, bus_stop_types=['BCS', 'BCT', 'BCQ'])
+            gdf, bus_stop_types=["BCS", "BCT", "BCQ"]
+        )
         return busstops

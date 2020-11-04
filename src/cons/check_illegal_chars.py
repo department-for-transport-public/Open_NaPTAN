@@ -1,7 +1,7 @@
 import regex as re
 from report.reporting import report_failing_nodes
 
-from src.checks import NaptanCheck
+from checks import NaptanCheck
 
 # %%
 
