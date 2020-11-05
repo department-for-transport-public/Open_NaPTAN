@@ -48,7 +48,7 @@ def main(named_area):
     # naptanfilenames = etl.file_verification('ext')
 
     # dataframe creation
-    gdf = etl.read_naptan_file("stops")
+    gdf = etl.read_naptan_file("Stops")
     gdf = etl.deactivated_nodes(gdf)
     # we join the gazette locality code and admin code data onto the nodes data
     # frame, this gives us accurate locality and admin area names.
