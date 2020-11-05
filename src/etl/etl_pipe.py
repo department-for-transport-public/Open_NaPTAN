@@ -290,7 +290,7 @@ def naptan_data_source(naptan_data,
         NotImplementedError: [XML download is not currently supported.]
     """
     # base naptan path for nptg and naptan node data.
-    base = 'http://naptan.app.dft.gov.uk/'
+    base = 'https://naptan.app.dft.gov.uk/'
     try:
         file = Path(f'{dl_home}/{timestr}_{naptan_data}.zip')
         # let's check the file exists and is readable.
