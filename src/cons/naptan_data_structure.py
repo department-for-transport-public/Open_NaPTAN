@@ -6,7 +6,7 @@ import sys
 class NaptanStructureChecks(NaptanCheck):
     """[summary] a collection of basic sanity checks, to ensure that the naptan
     data is loaded successfully from source. If any of these fail it
-    constitues a critical failure of naptan structure.
+    constitutes a critical failure of naptan structure.
 
     Args:
         NaptanCheck ([type]): [description]

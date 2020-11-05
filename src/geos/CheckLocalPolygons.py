@@ -149,7 +149,7 @@ class PolygonStructure(NaptanCheck):
             [type]: [description]
         """
         check_name = cls.check_area_length_is_regular.__name__
-        # make the polygon from area data, cehck length
+        # make the polygon from area data, check length
         area_polygon = make_naptan_polygon(naptan_locality)
         # TODO get the longest length
         poly_long = cls.polygon_longest_side(area_polygon)

@@ -125,7 +125,7 @@ class NameContainsLocality(NaptanCheck):
                 mns = df[df["NameMatch"]]
                 #
                 mns = mns.drop(["NameMatch"], axis=1)
-                # we create a mask to identify an excluded terms occuring in
+                # we create a mask to identify an excluded terms occurring in
                 # the remain duplicates, that should be ignored. We do this
                 # for both the Common name and Localityname, column.
                 cn_mask = np.logical_or.reduce(

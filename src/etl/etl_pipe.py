@@ -112,7 +112,7 @@ def intersect_list_to_masks(df, col_name, value_list):
 
 # %%
 def file_checker(file_locale, file_names, file_ext):
-    """[summary] Lists the Naptan files available at the specificed location.
+    """[summary] Lists the Naptan files available at the specified location.
     If some files are missing/ or can't be open this should flag a warning.
     Arguments:
 
@@ -364,7 +364,7 @@ def deactivated_nodes(df):
         [type] -- [description]
     """
     # TODO filter this to stops with a modification date time within the last 3
-    # years so that there is a represenative sample of deactived stops.
+    # years so that there is a represenative sample of deactivated stops.
     try:
         exp_date = (datetime.now() - timedelta(days=365*3))
         # we filter all the missing deleted stops that are older than 3 yrs.
@@ -616,7 +616,7 @@ def map_gazette_to_nodes(df, gazette_data, gazette_column):
     Returns:
         [type] -- [description]
     """
-    # capture the reference types we know are supporte
+    # capture the reference types we know are supported
     if gazette_column == 'NptgLocalityCode':
         abr = 'Locality'
     else:  # gazette_column == 'AdminCode':

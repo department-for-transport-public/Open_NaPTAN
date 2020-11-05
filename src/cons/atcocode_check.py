@@ -62,7 +62,7 @@ class AtcocodeCheck(NaptanCheck):
                 return result_agg
 
         except ValueError as ve:
-            sys.exit(f"This error occured {ve}")
+            sys.exit(f"This error occurred {ve}")
         except Exception as e:
             sys.exit(f"{e} was encounter check has been cancelled.")
         else:

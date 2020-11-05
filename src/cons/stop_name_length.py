@@ -6,7 +6,7 @@ from checks import NaptanCheck
 
 
 class CheckName(NaptanCheck):
-    """[summary] A collectin of methods for handling issues for checking names
+    """[summary] A collection of methods for handling issues for checking names
     within the naptan dataset.
     """
 

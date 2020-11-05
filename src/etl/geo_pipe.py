@@ -93,7 +93,7 @@ def calculate_naptan_geometry(gdf):
     """
     try:
         # Coordinate reference system : WGS84
-        # direct crs assignemnt as specified in geopandas 0.7
+        # direct crs assignment as specified in geopandas 0.7
         # https://geopandas.readthedocs.io/en/latest/projections.html#upgrading-to-geopandas-0-7-with-pyproj-2-2-and-proj-6
         gdf = gpd.GeoDataFrame(gdf,
                                geometry=gpd.points_from_xy(gdf.Longitude,

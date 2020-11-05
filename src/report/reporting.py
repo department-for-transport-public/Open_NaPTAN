@@ -27,7 +27,7 @@ def print_column_info(df):
     template = "%-8s %-30s %s"
     print(template % ("Type", "Column Name", "Example Value"))
     print("-" * 53)
-    # TODO - makes sure it returns valid entires for examples.
+    # TODO - makes sure it returns valid entries for examples.
     for c in df.columns:
         print(template % (df[c].dtype, c, df[c].iloc[1]))
 

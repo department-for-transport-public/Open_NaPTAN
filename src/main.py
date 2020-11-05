@@ -31,7 +31,7 @@ dl_home = Path(Path.home() / "Downloads")
     "--named_area",
     type=str,
     required=True,
-    prompt="Enter an adminstrative area level name.",
+    prompt="Enter an administrative area level name.",
     help="Provide the correct name from the administrative area list\
               .",
 )
@@ -59,7 +59,7 @@ def main(named_area):
     # we merge on the stop area data and corresponding codes for stop area
     gdf = etl.merge_stop_areas(gdf)
     gdf = geopipe.calculate_naptan_geometry(gdf)
-    # Check that the naptan data structue downloaded is within acceptable
+    # Check that the naptan data structure downloaded is within acceptable
     # tolerances
     NaptanStructureChecks.check_naptan_stop_number_limits(gdf)
     # cli to provide a named administrative area within the naptan dataset.

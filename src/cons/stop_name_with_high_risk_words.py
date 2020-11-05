@@ -43,7 +43,7 @@ class StopNameHighRisks(NaptanCheck):
                 "OBSOLETE",
                 "UNUSED",
             ]
-            # text captialising managment
+            # text captialising management
             gdf1["CommonName"] = gdf1["CommonName"].str.upper()
             gdf1["RiskWords"] = gdf1["CommonName"].apply(
                 lambda x: 1 if any(i in x for i in riskwords) else 0
