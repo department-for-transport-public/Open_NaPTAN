@@ -212,6 +212,9 @@ Pipenv used for package and dependency management.
 <pre><code>>> pip3 install -r requirements.txt
 </code></pre>
 
+*Note:* On Ubuntu/Linux if you receive an error when the Rtree dependency is being installed then 
+you may need to install the libspatialindex-dev library via `sudo apt-get install libspatialindex-dev`.
+
 4. Run the Command Line Interface (CLI), you can do this by running the main.py file from system terminal or Command Line Interface inside the src working directory.
 <pre><code>>> python3 main.py
 </code></pre>
