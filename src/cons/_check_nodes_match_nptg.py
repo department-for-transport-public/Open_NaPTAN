@@ -189,7 +189,7 @@ class NaptanNPTGComparsion(NaptanCheck):
             "York",
         ]
 
-        # TODO get the admin areas from teh nodes file, compare against the list of
+        # TODO get the admin areas from the nodes file, compare against the list of
         # area names
         # nptg values
         adjanct_locals = etl.load_gazette_adjanct_localities()

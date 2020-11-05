@@ -37,7 +37,7 @@ class DisusedLocalities(NaptanCheck):
         localities = etl_pipe.naptan_gazette_localities()
         unused = localities[~localities['NptgLocalityCode'].isin(
             gdf['NptgLocalityCode'])]
-        # converstion for geometry.
+        # conversion for geometry.
         unused = unused.rename(columns={"Gazette_Longitude": "Longitude",
                                         "Gazette_Latitude": "Latitude"})
         #

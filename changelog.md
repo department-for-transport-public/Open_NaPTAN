@@ -35,7 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Machine Learning based or NLP.
 - Stops with wrong bearing, need to understand local geography and road layout
 - Stop area Members with different localities
-- Hail and ride invalid - the hail and ride file is empty and has been for some time, this check is impossible then. A simliar thing could be done.
+- Hail and ride invalid - the hail and ride file is empty and has been for some time, this check is impossible then. A similar thing could be done.
 - Stop road distance
 - Need a road network dataset to know where the roads, are then find all the nearest roads to Naptan points…
 - Coast line checks, refine check to pinpoint to within 20 ms of coastline
@@ -89,7 +89,7 @@ classes
 - filter bus stop methods.
 - add check soft 'interface' class
 - no removing of illegal chars and capitals, just reporting.
-- uses pylance for environmental managment, more stable than existing python language server.
+- uses pylance for environmental management, more stable than existing python language server.
 -- removed check init files
 - added explicit epsg:4326.
 - stops clusters replaced with base map (60% speed improvement), better 
