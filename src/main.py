@@ -103,7 +103,7 @@ def main(named_area):
 
 if __name__ == "__main__":
     start = timeit.default_timer()
-    main("")
+    main()
     stop = timeit.default_timer()
     exe_time = stop - start
     print(f"Program Executed in {str(exe_time)}")
