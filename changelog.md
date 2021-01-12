@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 ===============
+### File Export 
+
+- Capability to produce a template file for submitting new stations
 
 ### Second set of initial checks
 
