@@ -108,21 +108,22 @@ def save_generated_map(folium_map, map_name="", map_folder="Downloads/Naptan_Map
     """
     #
     map_folder = Path(Path.home(), map_folder)
+    map_dest = f"{map_folder}/{timestr}_{map_name}.html"
     try:
         # update an existing map.
         print(f"{map_name} map is being updated.")
-
+        folium_map.save(map_dest)
     #
     except FileNotFoundError:
         Path(f"{map_folder}").mkdir(parents=True, exist_ok=True)
         print("Maps folder has been created.")
+        folium_map.save(map_dest)
     #
     except map_folder.is_dir():
         Path(f"{map_folder}").mkdir(parents=True, exist_ok=True)
+        folium_map.save(map_dest)
     finally:
         print(f"{map_name} map has been created in the map folder.")
-        map_dest = f"{map_folder}/{timestr}_{map_name}.html"
-        folium_map.save(map_dest)
         return folium_map
 
 
