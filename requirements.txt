@@ -31,7 +31,7 @@ clint==0.5.1
 colorama==0.4.3
 convertbng==0.6.17
 coverage==5.1
-cryptography==3.2
+cryptography==3.3.2
 csv-to-sqlite==2.1.0
 cycler==0.10.0
 cymem==2.0.3
